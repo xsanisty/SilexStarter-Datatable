@@ -46,7 +46,7 @@ class DatatableModule implements ModuleProviderInterface
     {
         return new ModuleResource(
             [
-
+                'assets' => 'Resources/assets'
             ]
         );
     }
