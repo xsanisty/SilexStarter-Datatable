@@ -106,6 +106,6 @@ class DatatableResponseBuilder
 
     protected function datatableFactory()
     {
-        return new DataTable($this->model, $this->column);
+        return new DataTable($this->getModel(), $this->getColumn(), $this->getFormatter());
     }
 }
