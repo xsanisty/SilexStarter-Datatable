@@ -73,6 +73,8 @@ class DatatableResponseBuilder
     public function setFormatter(callable $formatter)
     {
         $this->formatter = $formatter;
+
+        return $this;
     }
 
     /**
