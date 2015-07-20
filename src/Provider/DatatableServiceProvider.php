@@ -17,6 +17,8 @@ class DatatableServiceProvider implements ServiceProviderInterface
                 );
             }
         );
+
+        $app->bind('Xsanisty\Datatable\DatatableResponseBuilder', 'datatable');
     }
 
     public function boot(Application $app)
