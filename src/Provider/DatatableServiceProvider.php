@@ -13,7 +13,7 @@ class DatatableServiceProvider implements ServiceProviderInterface
         $app['datatable'] = $app->share(
             function (Application $app) {
                 return new DatatableResponseBuilder(
-                    $app['db']->getConnection()->getSchemaBuilder()
+                    $app['capsule']->getConnection()->getSchemaBuilder()
                 );
             }
         );
