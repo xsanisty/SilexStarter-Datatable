@@ -1,8 +1,5 @@
 <?php
 
-/**
- * This is user module, also works as sample module to show you how develop module as composer package
- */
 namespace Xsanisty\Datatable;
 
 use Silex\Application;
@@ -15,11 +12,33 @@ class DatatableModule implements ModuleProviderInterface
 {
     protected $app;
 
+    /**
+     * {@inheritdoc}
+     */
     public function __construct(Application $app)
     {
         $this->app = $app;
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function getModuleIdentifier()
+    {
+        return 'silexstarter-datatable';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getRequiredModules()
+    {
+        return [];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getInfo()
     {
         return new ModuleInfo(
@@ -32,16 +51,9 @@ class DatatableModule implements ModuleProviderInterface
         );
     }
 
-    public function getModuleIdentifier()
-    {
-        return 'silexstarter-datatable';
-    }
-
-    public function getRequiredModules()
-    {
-        return [];
-    }
-
+    /**
+     * {@inheritdoc}
+     */
     public function getResources()
     {
         return new ModuleResource(
@@ -51,6 +63,33 @@ class DatatableModule implements ModuleProviderInterface
         );
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function getRequiredPermissions()
+    {
+        return [];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function install()
+    {
+
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function uninstall()
+    {
+
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function register()
     {
         $this->app->register(new DatatableServiceProvider);
@@ -58,6 +97,9 @@ class DatatableModule implements ModuleProviderInterface
         $this->app['static_proxy_manager']->addProxy('Datatable', 'Xsanisty\Datatable\StaticProxy\Datatable');
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function boot()
     {
 

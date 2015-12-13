@@ -3,19 +3,26 @@
 namespace Xsanisty\Datatable;
 
 use Exception;
+use Illuminate\Support\Str;
+use Illuminate\Database\Connection;
 use Illuminate\Database\Schema\Builder as SchemaBuilder;
+use Symfony\Component\HttpFoundation\ParameterBag;
 use LiveControl\EloquentDataTable\DataTable;
 
 class DatatableResponseBuilder
 {
     protected $model;
-    protected $schema;
+    protected $param;
+    protected $connection;
     protected $column;
     protected $formatter;
+    protected $schema;
 
-    public function __construct(SchemaBuilder $schema)
+    public function __construct(Connection $connection, ParameterBag $param)
     {
-        $this->schema = $schema;
+        $this->param        = $param;
+        $this->connection   = $connection;
+        $this->schema       = $connection->getSchemaGrammar();
     }
 
     /**
@@ -106,6 +113,11 @@ class DatatableResponseBuilder
 
     protected function datatableFactory()
     {
-        return new DataTable($this->getModel(), $this->getColumn(), $this->getFormatter());
+        $datatable = new DataTable($this->connection, $this->getModel(), $this->param, new Str);
+
+        $datatable->setColumns($this->getColumn())
+                  ->setRowFormatter($this->getFormatter());
+
+        return $datatable;
     }
 }
