@@ -12,8 +12,14 @@
             "email": "ikhsan017@gmail.com"
         }
     ],
+    "repositories" : [
+        {
+            "type" : "vcs",
+            "url" : "https://github.com/xsanisty/EloquentDataTable"
+        }
+    ],
     "require" : {
-        "livecontrol/eloquent-datatable": "0.1.*"
+        "livecontrol/eloquent-datatable": "~0.1.6"
     },
     "autoload" : {
         "psr-4": {
