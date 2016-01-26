@@ -1,0 +1,30 @@
+{
+    "name": "xsanisty/silexstarter-datatable",
+    "description": "Datatable helper for SilexStarter application",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Xsanisty Dev Team",
+            "email": "developers@xsanisty.com"
+        },
+        {
+            "name": "Ikhsan Agustian",
+            "email": "ikhsan017@gmail.com"
+        }
+    ],
+    "repositories" : [
+        {
+            "type" : "vcs",
+            "url" : "https://github.com/xsanisty/EloquentDataTable"
+        }
+    ],
+    "require" : {
+        "livecontrol/eloquent-datatable": "~0.1.6"
+    },
+    "autoload" : {
+        "psr-4": {
+            "Xsanisty\\Datatable\\" : [ "src/", "tests/"]
+        }
+    },
+    "minimum-stability": "stable"
+}
