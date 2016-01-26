@@ -4,25 +4,27 @@ A datatable module for SilexStarter to provide backend for jquery-datatable libr
 ##Installation
 - Add this repository and the following package to your composer.json
 
-```
-"repositories" : [
-    {
-        "type" : "vcs",
-        "url" : "https://github.com/xsanisty/EloquentDataTable"
-    },
-    {
-        "type" : "vcs",
-        "url" : "https://github.com/xsanisty/SilexStarter-Datatable"
+```javascript
+{
+    "repositories" : [
+        {
+            "type" : "vcs",
+            "url" : "https://github.com/xsanisty/EloquentDataTable"
+        },
+        {
+            "type" : "vcs",
+            "url" : "https://github.com/xsanisty/SilexStarter-Datatable"
+        }
+    ],
+    "requires" : {
+        "xsanisty/silexstarter-datatable" : "^1.0"
     }
-],
-"requires" : {
-    "xsanisty/silexstarter-datatable" : "^1.0"
 }
 ```
 
 - Register the module provider on ```app/config/modules.php```
 
-```
+```php
 return [
     //...
     "Xsanisty\Datatable\DatatableModule",
@@ -57,7 +59,7 @@ return [
 
 - on the server side, you can build datatable response by simply using datatable shortcut
 
-```
+```php
 $datatable = Datatable::of(User::where('id', '<>', $my->id))
     ->setColumn(['profile_pic', 'first_name', 'last_name', 'email', 'activated', 'last_login', 'id'])
     ->setFormatter(
