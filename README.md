@@ -28,6 +28,7 @@ return [
     "Xsanisty\Datatable\DatatableModule",
     //...
 ]
+```
 
 ##Usage
 
