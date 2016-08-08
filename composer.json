@@ -19,7 +19,7 @@
         }
     ],
     "require" : {
-        "livecontrol/eloquent-datatable": "~0.1.6"
+        "livecontrol/eloquent-datatable": "~0.1.7"
     },
     "autoload" : {
         "psr-4": {

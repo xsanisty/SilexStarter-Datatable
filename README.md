@@ -76,3 +76,22 @@ $datatable = Datatable::of(User::where('id', '<>', $my->id))
 
 return Response::json($datatable);
 ```
+
+or make it as your controller dependency
+
+```php
+class MyController
+{
+    protected $dt;
+
+    public function __construct(Xsanisty\Datatable\DatatableResponseBuilder $dt)
+    {
+        $this->dt = $dt;
+    }
+
+    public function datatableHandler()
+    {
+        return $this->dt->of(new Model)->make();
+    }
+}
+```
