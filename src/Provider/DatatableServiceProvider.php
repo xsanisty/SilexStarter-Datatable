@@ -2,16 +2,16 @@
 
 namespace Xsanisty\Datatable\Provider;
 
-use Silex\Application;
-use Silex\ServiceProviderInterface;
+use Pimple\Container;
+use Pimple\ServiceProviderInterface;
 use Xsanisty\Datatable\DatatableResponseBuilder;
 
 class DatatableServiceProvider implements ServiceProviderInterface
 {
-    public function register(Application $app)
+    public function register(Container $app)
     {
         $app['datatable'] = $app->share(
-            function (Application $app) {
+            function (Container $app) {
                 return new DatatableResponseBuilder(
                     $app['capsule']->getConnection(),
                     $app['request']->request
@@ -20,9 +20,5 @@ class DatatableServiceProvider implements ServiceProviderInterface
         );
 
         $app->bind('Xsanisty\Datatable\DatatableResponseBuilder', 'datatable');
-    }
-
-    public function boot(Application $app)
-    {
     }
 }
